@@ -2,6 +2,15 @@
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  async redirects() {
+    return [
+      {
+        source: "/",
+        destination: "/providers",
+        permanent: true,
+      },
+    ];
+  },
   reactStrictMode: true,
   typescript: {
     ignoreBuildErrors: process.env.NEXT_PUBLIC_IGNORE_BUILD_ERROR === "true",
@@ -9,16 +18,25 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: process.env.NEXT_PUBLIC_IGNORE_BUILD_ERROR === "true",
   },
-  images:{
+  images: {
     dangerouslyAllowSVG: true,
-    contentDispositionType: 'attachment',
+    contentDispositionType: "attachment",
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
-    domains: ['localhost', 'https://www.google.com', 'images.unsplash.com', 'substackcdn.com', 'amecorg.com','miro.medium.com','www.gitbook.com',"https://icons8.com"]
+    domains: [
+      "localhost",
+      "https://www.google.com",
+      "images.unsplash.com",
+      "substackcdn.com",
+      "amecorg.com",
+      "miro.medium.com",
+      "www.gitbook.com",
+      "https://icons8.com",
+    ],
   },
   webpack: config => {
     config.module.rules.push({
       test: /\.svg$/,
-      use: ["@svgr/webpack"]
+      use: ["@svgr/webpack"],
     });
     config.resolve.fallback = { fs: false, net: false, tls: false };
     return config;
