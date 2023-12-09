@@ -1,3 +1,11 @@
+# Next Steps
+
+- Integrate Polygon ID for compliance, giving users tag (CNN)
+- Create Spaces when data is asserted using Push Protocol
+- Verified News App
+
+---
+
 # Polygon Mainnet Deployments
 
 - "Locator" at 0x74e9e01C5D4cca57F84231a22f3fEC800341234a -- VERIFIED
@@ -13,6 +21,8 @@
 UMA doesn't have availablity on Polygon ZkEvm, hence deployed to polygon mainnet.
 https://docs.uma.xyz/resources/network-addresses
 
+---
+
 # Base Goerli Deployments
 
 - "Locator" at 0xd3754DA3b9D2282a7850859D8413A8D91cd22b90 -- VERIFIED
@@ -27,6 +37,8 @@ https://docs.uma.xyz/resources/network-addresses
 
 Example: https://goerli.basescan.org/address/0x77EDBa34d4F5355Af6060D6E6cE6b2a41114f5Fe#code
 
+---
+
 # Alfajores Deployments
 
 - "Locator" at 0xd3754DA3b9D2282a7850859D8413A8D91cd22b90 -- VERIFIED
@@ -34,6 +46,8 @@ Example: https://goerli.basescan.org/address/0x77EDBa34d4F5355Af6060D6E6cE6b2a41
   LIMITATIONS DUE TO UMA DEPENDENCY
 
 Example: https://alfajores.celoscan.io/address/0xd3754DA3b9D2282a7850859D8413A8D91cd22b90#code
+
+---
 
 # Scroll Sepolia Deployments
 
@@ -44,6 +58,8 @@ Example: https://alfajores.celoscan.io/address/0xd3754DA3b9D2282a7850859D8413A8D
 
 Example: https://sepolia-blockscout.scroll.io/address/0x19106190C3b46Efd30eEbC23dBEAdd1707af6ad3
 
+---
+
 # Arbitium Goerli Deployments
 
 - "YourContract" at 0x140AD180FdCE87ab9610B3Bb6c2C28A5e9EBD08B -- VERIFIED
@@ -52,6 +68,8 @@ Example: https://sepolia-blockscout.scroll.io/address/0x19106190C3b46Efd30eEbC23
   LIMITATIONS DUE TO UMA DEPENDENCY
 
   Example: https://goerli.arbiscan.io/address/0x19106190C3b46Efd30eEbC23dBEAdd1707af6ad3#code
+
+---
 
 # Goerli Deployments
 
@@ -69,9 +87,13 @@ Example: https://sepolia-blockscout.scroll.io/address/0x19106190C3b46Efd30eEbC23
 UMA doesn't have availablity on base mainnet, hence deployed to base goerli.
 https://docs.uma.xyz/resources/network-addresses
 
+---
+
 # The Graph
 
 - Deployed to https://api.studio.thegraph.com/query/52089/eth-ind-goerli/"v0.0.2"
+
+---
 
 ### Debug Tips
 

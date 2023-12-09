@@ -5,7 +5,7 @@ import Earning from "~~/components/Earning";
 import FAQ from "~~/components/FAQ";
 import Feature from "~~/components/Feature";
 import Hero from "~~/components/Hero";
-import Layout from "~~/components/Layout/Layout";
+// import Layout from "~~/components/Layout/Layout";
 import Reviews from "~~/components/Reviews";
 import TwoColorDivWithSlantLink from "~~/components/blockexplorer/TwoColorBackground";
 
