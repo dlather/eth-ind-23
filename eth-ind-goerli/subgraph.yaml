@@ -1,0 +1,101 @@
+specVersion: 0.0.5
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: Provider
+    network: goerli
+    source:
+      address: "0xFD8E0bF9031b95Eb63dC49E4A9317E129390C733"
+      abi: Provider
+      startBlock: 10184616
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - DataAsserted
+        - DataAssertionResolved
+        - OwnershipTransferStarted
+        - OwnershipTransferred
+        - ProviderAdded
+      abis:
+        - name: Provider
+          file: ./abis/Provider.json
+      eventHandlers:
+        - event: DataAsserted(indexed bytes32,bytes,indexed address,indexed bytes32)
+          handler: handleDataAsserted
+        - event: DataAssertionResolved(indexed bytes32,bytes,indexed address,indexed bytes32)
+          handler: handleDataAssertionResolved
+        - event: OwnershipTransferStarted(indexed address,indexed address)
+          handler: handleOwnershipTransferStarted
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+        - event: ProviderAdded(indexed bytes32,string,indexed
+            bytes32,string,(uint256,uint256),indexed
+            uint256,uint256,address,address,uint64)
+          handler: handleProviderAdded
+      file: ./src/provider.ts
+  - kind: ethereum
+    name: BaseOptionsContest
+    network: goerli
+    source:
+      address: "0x22b858d2154f0F9e886A38287Cfd27EF199ED1b1"
+      abi: BaseOptionsContest
+      startBlock: 10184616
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - BetPlacedEvent
+        - Initialized
+      abis:
+        - name: BaseOptionsContest
+          file: ./abis/BaseOptionsContest.json
+      eventHandlers:
+        - event: BetPlacedEvent(indexed address,indexed address)
+          handler: handleBetPlacedEvent
+        - event: Initialized(uint8)
+          handler: handleInitialized
+      file: ./src/base-options-contest.ts
+  - kind: ethereum
+    name: YesNoContestFactory
+    network: goerli
+    source:
+      address: "0x1E165f544E627F5Dd975eD749f13950EC331fCd6"
+      abi: YesNoContestFactory
+      startBlock: 10184616
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - ContestAdded
+      abis:
+        - name: YesNoContestFactory
+          file: ./abis/YesNoContestFactory.json
+      eventHandlers:
+        - event: ContestAdded(indexed bytes32,indexed address,indexed bytes32)
+          handler: handleContestAdded
+      file: ./src/yes-no-contest-factory.ts
+  - kind: ethereum
+    name: Operators
+    network: goerli
+    source:
+      address: "0xc847bC2eCc7591BAeDE5B3f99E44a7261cD2496c"
+      abi: Operators
+      startBlock: 10184616
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - OperatorAdded
+      abis:
+        - name: Operators
+          file: ./abis/Operators.json
+      eventHandlers:
+        - event: OperatorAdded(indexed bytes32,indexed address)
+          handler: handleOperatorAdded
+      file: ./src/operators.ts

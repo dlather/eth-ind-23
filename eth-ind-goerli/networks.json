@@ -1,0 +1,17 @@
+{
+  "goerli": {
+    "Provider": {
+      "address": "0xFD8E0bF9031b95Eb63dC49E4A9317E129390C733",
+      "startBlock": 10184616
+    },
+    "BaseOptionsContest": {
+      "address": "0x22b858d2154f0F9e886A38287Cfd27EF199ED1b1"
+    },
+    "YesNoContestFactory": {
+      "address": "0x1E165f544E627F5Dd975eD749f13950EC331fCd6"
+    },
+    "Operators": {
+      "address": "0xc847bC2eCc7591BAeDE5B3f99E44a7261cD2496c"
+    }
+  }
+}

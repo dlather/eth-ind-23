@@ -1,0 +1,100 @@
+type DataAsserted @entity(immutable: true) {
+  id: Bytes!
+  dataId: Bytes! # bytes32
+  data: Bytes! # bytes
+  asserter: Bytes! # address
+  assertionId: Bytes! # bytes32
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type DataAssertionResolved @entity(immutable: true) {
+  id: Bytes!
+  dataId: Bytes! # bytes32
+  data: Bytes! # bytes
+  asserter: Bytes! # address
+  assertionId: Bytes! # bytes32
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type OwnershipTransferStarted @entity(immutable: true) {
+  id: Bytes!
+  previousOwner: Bytes! # address
+  newOwner: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type OwnershipTransferred @entity(immutable: true) {
+  id: Bytes!
+  previousOwner: Bytes! # address
+  newOwner: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type ProviderAdded @entity(immutable: true) {
+  id: Bytes!
+  dataId: Bytes! # bytes32
+  name: String! # string
+  dataJsonHash: Bytes! # bytes32
+  description: String! # string
+  fee_fee: BigInt! # uint256
+  fee_decimals: BigInt! # uint256
+  endTimeStamp: BigInt! # uint256
+  bond: BigInt! # uint256
+  currency: Bytes! # address
+  providerAddress: Bytes! # address
+  assertionLiveness: BigInt! # uint64
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+type ImplementationChanged @entity(immutable: true) {
+  id: Bytes!
+  key: String! # string
+  name: String! # string
+  newAddress: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type BetPlacedEvent @entity(immutable: true) {
+  id: Bytes!
+  userAddress: Bytes! # address
+  contestAddress: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type Initialized @entity(immutable: true) {
+  id: Bytes!
+  version: Int! # uint8
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+type ContestAdded @entity(immutable: true) {
+  id: Bytes!
+  dataId: Bytes! # bytes32
+  contestAddress: Bytes! # address
+  contestId: Bytes! # bytes32
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+type OperatorAdded @entity(immutable: true) {
+  id: Bytes!
+  contestId: Bytes! # bytes32
+  operator: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}

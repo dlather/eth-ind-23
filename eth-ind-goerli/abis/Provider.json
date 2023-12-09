@@ -1,0 +1,670 @@
+[
+  {
+    "inputs": [
+      {
+        "internalType": "contract FinderInterface",
+        "name": "_finder",
+        "type": "address"
+      },
+      {
+        "internalType": "contract ILocator",
+        "name": "_locator",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "dataId",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "internalType": "bytes",
+        "name": "data",
+        "type": "bytes"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "asserter",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "assertionId",
+        "type": "bytes32"
+      }
+    ],
+    "name": "DataAsserted",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "dataId",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "internalType": "bytes",
+        "name": "data",
+        "type": "bytes"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "asserter",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "assertionId",
+        "type": "bytes32"
+      }
+    ],
+    "name": "DataAssertionResolved",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "previousOwner",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+      }
+    ],
+    "name": "OwnershipTransferStarted",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "previousOwner",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+      }
+    ],
+    "name": "OwnershipTransferred",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "dataId",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "name",
+        "type": "string"
+      },
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "dataJsonHash",
+        "type": "bytes32"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "description",
+        "type": "string"
+      },
+      {
+        "components": [
+          { "internalType": "uint256", "name": "fee", "type": "uint256" },
+          { "internalType": "uint256", "name": "decimals", "type": "uint256" }
+        ],
+        "indexed": false,
+        "internalType": "struct Provider.Fee",
+        "name": "fee",
+        "type": "tuple"
+      },
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "endTimeStamp",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "bond",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "currency",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "providerAddress",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint64",
+        "name": "assertionLiveness",
+        "type": "uint64"
+      }
+    ],
+    "name": "ProviderAdded",
+    "type": "event"
+  },
+  {
+    "inputs": [],
+    "name": "acceptOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes32", "name": "_dataId", "type": "bytes32" },
+      { "internalType": "bytes", "name": "_data", "type": "bytes" }
+    ],
+    "name": "addContest",
+    "outputs": [
+      { "internalType": "bool", "name": "_success", "type": "bool" },
+      { "internalType": "bytes32", "name": "_contestId", "type": "bytes32" }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "string", "name": "_name", "type": "string" },
+      { "internalType": "string", "name": "_description", "type": "string" },
+      { "internalType": "string", "name": "_imageIpfsHash", "type": "string" },
+      { "internalType": "bytes32", "name": "_dataJsonHash", "type": "bytes32" },
+      {
+        "components": [
+          { "internalType": "uint256", "name": "fee", "type": "uint256" },
+          { "internalType": "uint256", "name": "decimals", "type": "uint256" }
+        ],
+        "internalType": "struct Provider.Fee",
+        "name": "_fee",
+        "type": "tuple"
+      },
+      { "internalType": "uint64", "name": "_endTimeStamp", "type": "uint64" },
+      { "internalType": "uint256", "name": "_bond", "type": "uint256" },
+      { "internalType": "address", "name": "_currency", "type": "address" },
+      {
+        "internalType": "address",
+        "name": "_providerAddress",
+        "type": "address"
+      },
+      {
+        "internalType": "uint64",
+        "name": "_assertionLiveness",
+        "type": "uint64"
+      },
+      { "internalType": "string", "name": "_template", "type": "string" },
+      { "internalType": "bytes", "name": "_templateData", "type": "bytes" }
+    ],
+    "name": "addProvider",
+    "outputs": [
+      { "internalType": "bool", "name": "", "type": "bool" },
+      { "internalType": "bytes32", "name": "", "type": "bytes32" }
+    ],
+    "stateMutability": "payable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes32", "name": "_dataId", "type": "bytes32" },
+      { "internalType": "bytes", "name": "_data", "type": "bytes" }
+    ],
+    "name": "assertData",
+    "outputs": [
+      { "internalType": "bool", "name": "", "type": "bool" },
+      { "internalType": "bytes32", "name": "", "type": "bytes32" }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes32", "name": "assertionId", "type": "bytes32" }
+    ],
+    "name": "assertionDisputedCallback",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes32", "name": "_assertionId", "type": "bytes32" },
+      { "internalType": "bool", "name": "_assertedTruthfully", "type": "bool" }
+    ],
+    "name": "assertionResolvedCallback",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "defaultIdentifier",
+    "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "escalationManager",
+    "outputs": [
+      {
+        "internalType": "contract CustomEscalationManager",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "finder",
+    "outputs": [
+      {
+        "internalType": "contract FinderInterface",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getAllDataIdDetails",
+    "outputs": [
+      {
+        "components": [
+          { "internalType": "bytes32", "name": "dataId", "type": "bytes32" },
+          {
+            "components": [
+              {
+                "internalType": "bytes32",
+                "name": "dataJsonHash",
+                "type": "bytes32"
+              },
+              { "internalType": "string", "name": "name", "type": "string" },
+              {
+                "internalType": "string",
+                "name": "imageIpfsHash",
+                "type": "string"
+              },
+              {
+                "internalType": "string",
+                "name": "description",
+                "type": "string"
+              },
+              { "internalType": "string", "name": "template", "type": "string" }
+            ],
+            "internalType": "struct Provider.DataDetails",
+            "name": "dataDetails",
+            "type": "tuple"
+          },
+          {
+            "components": [
+              {
+                "internalType": "address",
+                "name": "providerAddress",
+                "type": "address"
+              },
+              { "internalType": "uint256", "name": "bond", "type": "uint256" },
+              {
+                "components": [
+                  {
+                    "internalType": "uint256",
+                    "name": "fee",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "decimals",
+                    "type": "uint256"
+                  }
+                ],
+                "internalType": "struct Provider.Fee",
+                "name": "fee",
+                "type": "tuple"
+              },
+              {
+                "internalType": "uint256",
+                "name": "endTimeStamp",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint64",
+                "name": "assertionLiveness",
+                "type": "uint64"
+              },
+              {
+                "internalType": "contract IERC20",
+                "name": "currency",
+                "type": "address"
+              }
+            ],
+            "internalType": "struct Provider.ProviderData",
+            "name": "providerDetails",
+            "type": "tuple"
+          },
+          {
+            "components": [
+              {
+                "internalType": "bytes32",
+                "name": "dataId",
+                "type": "bytes32"
+              },
+              { "internalType": "bytes", "name": "data", "type": "bytes" },
+              {
+                "internalType": "address",
+                "name": "asserter",
+                "type": "address"
+              },
+              { "internalType": "bool", "name": "resolved", "type": "bool" }
+            ],
+            "internalType": "struct Provider.DataAssertion",
+            "name": "assertionDetails",
+            "type": "tuple"
+          }
+        ],
+        "internalType": "struct Provider.CompleteData[]",
+        "name": "_completeData",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes32", "name": "_dataId", "type": "bytes32" }
+    ],
+    "name": "getDataIdDetails",
+    "outputs": [
+      {
+        "components": [
+          { "internalType": "bytes32", "name": "dataId", "type": "bytes32" },
+          {
+            "components": [
+              {
+                "internalType": "bytes32",
+                "name": "dataJsonHash",
+                "type": "bytes32"
+              },
+              { "internalType": "string", "name": "name", "type": "string" },
+              {
+                "internalType": "string",
+                "name": "imageIpfsHash",
+                "type": "string"
+              },
+              {
+                "internalType": "string",
+                "name": "description",
+                "type": "string"
+              },
+              { "internalType": "string", "name": "template", "type": "string" }
+            ],
+            "internalType": "struct Provider.DataDetails",
+            "name": "dataDetails",
+            "type": "tuple"
+          },
+          {
+            "components": [
+              {
+                "internalType": "address",
+                "name": "providerAddress",
+                "type": "address"
+              },
+              { "internalType": "uint256", "name": "bond", "type": "uint256" },
+              {
+                "components": [
+                  {
+                    "internalType": "uint256",
+                    "name": "fee",
+                    "type": "uint256"
+                  },
+                  {
+                    "internalType": "uint256",
+                    "name": "decimals",
+                    "type": "uint256"
+                  }
+                ],
+                "internalType": "struct Provider.Fee",
+                "name": "fee",
+                "type": "tuple"
+              },
+              {
+                "internalType": "uint256",
+                "name": "endTimeStamp",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint64",
+                "name": "assertionLiveness",
+                "type": "uint64"
+              },
+              {
+                "internalType": "contract IERC20",
+                "name": "currency",
+                "type": "address"
+              }
+            ],
+            "internalType": "struct Provider.ProviderData",
+            "name": "providerDetails",
+            "type": "tuple"
+          },
+          {
+            "components": [
+              {
+                "internalType": "bytes32",
+                "name": "dataId",
+                "type": "bytes32"
+              },
+              { "internalType": "bytes", "name": "data", "type": "bytes" },
+              {
+                "internalType": "address",
+                "name": "asserter",
+                "type": "address"
+              },
+              { "internalType": "bool", "name": "resolved", "type": "bool" }
+            ],
+            "internalType": "struct Provider.DataAssertion",
+            "name": "assertionDetails",
+            "type": "tuple"
+          }
+        ],
+        "internalType": "struct Provider.CompleteData",
+        "name": "_completeData",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getDataIdList",
+    "outputs": [
+      { "internalType": "bytes32[]", "name": "", "type": "bytes32[]" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes32", "name": "_dataId", "type": "bytes32" }
+    ],
+    "name": "getDataIdTemplate",
+    "outputs": [
+      { "internalType": "string", "name": "_template", "type": "string" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes32", "name": "_dataId", "type": "bytes32" }
+    ],
+    "name": "getProviderFee",
+    "outputs": [
+      { "internalType": "uint256", "name": "fee", "type": "uint256" },
+      { "internalType": "uint256", "name": "decimals", "type": "uint256" },
+      {
+        "internalType": "address",
+        "name": "_providerAddress",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes32", "name": "_dataId", "type": "bytes32" }
+    ],
+    "name": "getResolvedData",
+    "outputs": [
+      { "internalType": "bool", "name": "", "type": "bool" },
+      { "internalType": "bytes", "name": "", "type": "bytes" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getSupportedCurrencies",
+    "outputs": [
+      {
+        "components": [
+          { "internalType": "string", "name": "_symbol", "type": "string" },
+          { "internalType": "address", "name": "_address", "type": "address" },
+          { "internalType": "uint256", "name": "_uint", "type": "uint256" }
+        ],
+        "internalType": "struct Provider.AddressUint[]",
+        "name": "_result",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes32", "name": "_dataId", "type": "bytes32" }
+    ],
+    "name": "isDataAsserted",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "oo",
+    "outputs": [
+      {
+        "internalType": "contract OptimisticOracleV3Interface",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "owner",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "pendingOwner",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "renounceOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes32", "name": "_dataId", "type": "bytes32" }
+    ],
+    "name": "resolve",
+    "outputs": [{ "internalType": "bool", "name": "_success", "type": "bool" }],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "newOwner", "type": "address" }
+    ],
+    "name": "transferOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes32", "name": "_dataId", "type": "bytes32" },
+      { "internalType": "address", "name": "_address", "type": "address" }
+    ],
+    "name": "validateDataIdandSender",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes32", "name": "_dataId", "type": "bytes32" }
+    ],
+    "name": "validatePlaceBet",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "view",
+    "type": "function"
+  }
+]

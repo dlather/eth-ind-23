@@ -1,0 +1,140 @@
+[
+  {
+    "inputs": [
+      {
+        "internalType": "contract ILocator",
+        "name": "_locator",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_baseOptionsContestImplementation",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "dataId",
+        "type": "bytes32"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "contestAddress",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "contestId",
+        "type": "bytes32"
+      }
+    ],
+    "name": "ContestAdded",
+    "type": "event"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes32", "name": "_dataId", "type": "bytes32" },
+      { "internalType": "bytes", "name": "_data", "type": "bytes" }
+    ],
+    "name": "addContest",
+    "outputs": [
+      { "internalType": "bool", "name": "", "type": "bool" },
+      { "internalType": "bytes32", "name": "", "type": "bytes32" }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "_fee", "type": "uint256" },
+      { "internalType": "uint256", "name": "_spots", "type": "uint256" },
+      { "internalType": "uint64", "name": "_stopTimeStamp", "type": "uint64" }
+    ],
+    "name": "encode",
+    "outputs": [{ "internalType": "bytes", "name": "", "type": "bytes" }],
+    "stateMutability": "pure",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32[]",
+        "name": "_contestIds",
+        "type": "bytes32[]"
+      }
+    ],
+    "name": "getAllContestsDetails",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "contract BaseOptionsContest",
+            "name": "contestAddress",
+            "type": "address"
+          },
+          { "internalType": "bytes32", "name": "dataId", "type": "bytes32" }
+        ],
+        "internalType": "struct YesNoContestFactory.ContestEssentialData[]",
+        "name": "_essentialContestData",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes32", "name": "_contestId", "type": "bytes32" }
+    ],
+    "name": "getContestAddress",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "bytes32", "name": "_dataId", "type": "bytes32" }
+    ],
+    "name": "getContestsByDataId",
+    "outputs": [
+      {
+        "components": [
+          { "internalType": "bytes32", "name": "dataId", "type": "bytes32" },
+          {
+            "internalType": "address",
+            "name": "contestAddress",
+            "type": "address"
+          },
+          { "internalType": "bytes32", "name": "id", "type": "bytes32" },
+          { "internalType": "uint256", "name": "count", "type": "uint256" },
+          {
+            "internalType": "bytes32[]",
+            "name": "validIds",
+            "type": "bytes32[]"
+          },
+          { "internalType": "uint256", "name": "fee", "type": "uint256" },
+          { "internalType": "uint256", "name": "spots", "type": "uint256" },
+          {
+            "internalType": "uint64",
+            "name": "stopTimeStamp",
+            "type": "uint64"
+          }
+        ],
+        "internalType": "struct BaseOptionsContest.ContestData[]",
+        "name": "_contests",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  }
+]
