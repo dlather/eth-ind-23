@@ -31,7 +31,7 @@ const config: HardhatUserConfig = {
     },
   },
   // defaultNetwork: "baseGoerli",
-  defaultNetwork: "goerli",
+  defaultNetwork: "arbitrumGoerli",
   namedAccounts: {
     deployer: {
       // By default, it will take the first Hardhat account as the deployer
