@@ -6,7 +6,8 @@ import { formatEther } from "viem";
 import { useAccount } from "wagmi";
 import CustomCenter, { CustomLoading } from "~~/components/CustomCommons";
 import AddOperatorFeeForm from "~~/components/forms/add-operator-fee";
-import { useScaffoldContractRead, useScaffoldContractWrite } from "~~/hooks/scaffold-eth";
+import { useDeployedContractInfo, useScaffoldContractRead, useScaffoldContractWrite } from "~~/hooks/scaffold-eth";
+import { resolveWinnersAnon } from "~~/utils/pimcolo";
 import { getTargetNetwork } from "~~/utils/scaffold-eth";
 
 const Contests: NextPage = () => {
@@ -107,6 +108,7 @@ const LocalContestCard = ({
     functionName: "winnersResolved",
     address: data.contestAddress,
   });
+  const { data: deployedContractData } = useDeployedContractInfo("BaseOptionsContest");
 
   const { writeAsync } = useScaffoldContractWrite({
     contractName: "BaseOptionsContest",
@@ -140,14 +142,31 @@ const LocalContestCard = ({
           } %`}</span>
         </p>
       )}
-      <div className="flex flex-row justify-between pr-4 pb-2">
+      <div className="flex flex-col justify-between pr-4 pb-2">
         {providerDataResolved ? (
           winnersResolved ? null : (
-            <div className="flex mt-2 items-center justify-center">
-              <button onClick={() => writeAsync()} className="btn btn-wide mx-4 btn-neutral">
-                Resolve Winners
-              </button>
-            </div>
+            <>
+              <div className="flex mt-2 items-center justify-center">
+                <button
+                  onClick={() =>
+                    resolveWinnersAnon({
+                      contractAddress: data.contestAddress ?? "",
+                      contractAbi: deployedContractData?.abi ?? "",
+                    })
+                  }
+                  className="btn btn-wide mx-4 btn-neutral"
+                >
+                  Resolve Winners
+                  <div className="badge badge-secondary badge-sm">Free + Anon</div>
+                </button>
+              </div>
+              <div className="flex mt-2 items-center justify-center">
+                <button onClick={() => writeAsync()} className="btn btn-wide mx-4 btn-neutral">
+                  Resolve Winners
+                  <div className="badge badge-secondary badge-sm">Usual Case</div>
+                </button>
+              </div>
+            </>
           )
         ) : null}
       </div>

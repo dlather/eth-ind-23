@@ -15,6 +15,8 @@ import { CustomLoading } from "~~/components/CustomCommons";
 import { useScaffoldContractRead } from "~~/hooks/scaffold-eth";
 import createApolloClient from "~~/utils/appolo-client";
 
+// import { executeTransaction } from "~~/utils/pimcolo";
+
 export const ZERO_ADDRESS = "0x0000000000000000000000000000000000000000";
 
 async function getProviders() {
@@ -58,6 +60,15 @@ const Providers: NextPage = () => {
     <CustomLoading />
   ) : providersData.length > 0 ? (
     <>
+      {/* <div
+        className="btn btn-primary"
+        onClick={async () => {
+          // console.log(await getProviders());
+          executeTransaction();
+        }}
+      >
+        Execute Transation
+      </div> */}
       <div className="join-vertical mb-40 mx-auto">
         {providersData.map(data => {
           return data.dataDetails.template === "YES_NO_PROVIDER_TEMPLATE" ? (
