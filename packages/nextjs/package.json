@@ -5,6 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "start": "next dev",
+    "build-client": "graphclient build",
+    "graphiql": "graphclient serve-dev",
     "build": "next build",
     "export": "next export",
     "serve": "next start",
@@ -15,6 +17,7 @@
     "vercel:yolo": "vercel --build-env NEXT_PUBLIC_IGNORE_BUILD_ERROR=true"
   },
   "dependencies": {
+    "@apollo/client": "^3.8.8",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@ethersproject/providers": "^5.7.2",
@@ -42,6 +45,7 @@
     "form-data": "^4.0.0",
     "formidable": "2.1.2",
     "framer-motion": "10.16.4",
+    "graphql": "^16.8.1",
     "next": "^13.1.6",
     "next-share": "^0.27.0",
     "nextjs-progressbar": "^0.0.16",
@@ -68,6 +72,7 @@
     "zustand": "^4.1.2"
   },
   "devDependencies": {
+    "@graphprotocol/client-cli": "3.0.0",
     "@svgr/webpack": "8.1.0",
     "@trivago/prettier-plugin-sort-imports": "^4.1.1",
     "@types/formidable": "^3.4.5",

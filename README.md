@@ -31,7 +31,7 @@ Example: https://goerli.basescan.org/address/0x77EDBa34d4F5355Af6060D6E6cE6b2a41
 
 - "Locator" at 0xd3754DA3b9D2282a7850859D8413A8D91cd22b90 -- VERIFIED
 - "Registry" at 0x19106190C3b46Efd30eEbC23dBEAdd1707af6ad3 -- VERIFIED
-  Error: https://discord.com/channels/554623348622098432/1092170146287734824/1183071915938693242
+  LIMITATIONS DUE TO UMA DEPENDENCY
 
 Example: https://alfajores.celoscan.io/address/0xd3754DA3b9D2282a7850859D8413A8D91cd22b90#code
 
@@ -40,18 +40,18 @@ Example: https://alfajores.celoscan.io/address/0xd3754DA3b9D2282a7850859D8413A8D
 - "YourContract" at 0x140AD180FdCE87ab9610B3Bb6c2C28A5e9EBD08B -- VERIFIED
 - "Locator" at 0xd3754DA3b9D2282a7850859D8413A8D91cd22b90 -- VERIFIED
 - "Registry" at 0x19106190C3b46Efd30eEbC23dBEAdd1707af6ad3 -- VERIFIED
-
-Error: cannot estimate gas; transaction may fail or may require manual gas limit [ See: https://links.ethers.org/v5-errors-UNPREDICTABLE_GAS_LIMIT ]
+  LIMITATIONS DUE TO UMA DEPENDENCY
 
 Example: https://sepolia-blockscout.scroll.io/address/0x19106190C3b46Efd30eEbC23dBEAdd1707af6ad3
 
 # Arbitium Goerli Deployments
 
-- "YourContract" at 0x140AD180FdCE87ab9610B3Bb6c2C28A5e9EBD08B
-  reusing "Locator" at 0xd3754DA3b9D2282a7850859D8413A8D91cd22b90
-  reusing "Registry" at 0x19106190C3b46Efd30eEbC23dBEAdd1707af6ad3
+- "YourContract" at 0x140AD180FdCE87ab9610B3Bb6c2C28A5e9EBD08B -- VERIFIED
+- "Locator" at 0xd3754DA3b9D2282a7850859D8413A8D91cd22b90 -- VERIFIED
+- "Registry" at 0x19106190C3b46Efd30eEbC23dBEAdd1707af6ad3 -- VERIFIED
+  LIMITATIONS DUE TO UMA DEPENDENCY
 
-  error: Error in plugin @nomiclabs/hardhat-etherscan: Invalid API Key
+  Example: https://goerli.arbiscan.io/address/0x19106190C3b46Efd30eEbC23dBEAdd1707af6ad3#code
 
 # Goerli Deployments
 

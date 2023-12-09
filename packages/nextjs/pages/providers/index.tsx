@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import { gql } from "@apollo/client";
 import dayjs from "dayjs";
 import type { NextPage } from "next";
 import ShowMoreText from "react-show-more-text";
@@ -12,8 +13,36 @@ import {
 } from "@heroicons/react/24/outline";
 import { CustomLoading } from "~~/components/CustomCommons";
 import { useScaffoldContractRead } from "~~/hooks/scaffold-eth";
+import createApolloClient from "~~/utils/appolo-client";
 
 export const ZERO_ADDRESS = "0x0000000000000000000000000000000000000000";
+
+async function getProviders() {
+  const client = createApolloClient();
+  const { data } = await client.query({
+    query: gql`
+      query MyQuery {
+        providerAddeds {
+          dataId
+          currency
+          bond
+          endTimeStamp
+          fee_decimals
+          fee_fee
+          id
+          name
+          providerAddress
+        }
+      }
+    `,
+  });
+
+  return {
+    props: {
+      data: data,
+    },
+  };
+}
 
 const Providers: NextPage = () => {
   const { data: providersData } = useScaffoldContractRead({
@@ -46,6 +75,14 @@ const Providers: NextPage = () => {
       <Link href={"/providers/add-provider"} passHref className="fixed bottom-4 left-1/2 transform -translate-x-1/2">
         <button className="py-2 px-4 btn-primary btn btn-wide">Add Provider</button>
       </Link>
+      <div
+        className="btn btn-primary hidden"
+        onClick={async () => {
+          console.log(await getProviders());
+        }}
+      >
+        Test Get Providers
+      </div>
     </>
   ) : (
     <>
