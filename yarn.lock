@@ -6262,6 +6262,7 @@ __metadata:
     next: ^13.1.6
     next-share: ^0.27.0
     nextjs-progressbar: ^0.0.16
+    permissionless: ^0.0.13
     postcss: ^8.4.16
     postcss-import: ^13.0.0
     prettier: ^2.8.4
@@ -22534,6 +22535,15 @@ __metadata:
     estree-walker: ^3.0.0
     is-reference: ^3.0.0
   checksum: 2153244352e58a0d76e7e8d9263e66fe74509495f809af388da20045fb30aa3e93f2f94468dc0b9166ecf206fcfc0d73d2c7641c6fbedc07b1de858b710142cb
+  languageName: node
+  linkType: hard
+
+"permissionless@npm:^0.0.13":
+  version: 0.0.13
+  resolution: "permissionless@npm:0.0.13"
+  peerDependencies:
+    viem: ^1.19.4
+  checksum: 6d443e6068fabcf3896918468f58c773719d55e4dc1bdd8d87f6924f87306e1387569f76a2b5b32de72aa32c14c21b91d5b2065e7f59de2bba48f48e6e606d4f
   languageName: node
   linkType: hard
 
