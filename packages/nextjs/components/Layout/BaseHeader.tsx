@@ -1,6 +1,5 @@
 import React, { ReactNode, useState } from "react";
 import Link from "next/link";
-import { WhatsappIcon, WhatsappShareButton } from "next-share";
 import { useAccount } from "wagmi";
 import { DevicePhoneMobileIcon, ListBulletIcon, PlusIcon } from "@heroicons/react/24/outline";
 import { FaucetButton, RainbowKitCustomConnectButton } from "~~/components/scaffold-eth";
@@ -70,18 +69,6 @@ const BaseHeader = ({ children }: { children: ReactNode }) => {
                   <DevicePhoneMobileIcon className="h-6 w-6" /> My Contests
                 </button>
               </Link>
-            ) : null}
-            {isConnected ? (
-              <button className="btn btn-ghost mx-2">
-                <WhatsappShareButton
-                  url={`bet11.eth/play?operatorAddress=${address}`}
-                  title={"Play and Earn on FairPlay"}
-                  separator=":: "
-                >
-                  <WhatsappIcon size={32} round />
-                </WhatsappShareButton>
-                Share
-              </button>
             ) : null}
           </ul>
         </div>
