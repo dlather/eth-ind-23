@@ -8,7 +8,6 @@ import {
   ArrowLeftOnRectangleIcon,
   ArrowTopRightOnSquareIcon,
   ArrowsRightLeftIcon,
-  BanknotesIcon,
   CheckCircleIcon,
   ChevronDownIcon,
   DocumentDuplicateIcon,
@@ -36,15 +35,6 @@ export const RainbowKitCustomConnectButton = () => {
         const blockExplorerAddressLink = account
           ? getBlockExplorerAddressLink(getTargetNetwork(), account.address)
           : undefined;
-        const onRampParams = {
-          appId: "1",
-          coinCode: "matic",
-          network: "matic20",
-          walletAddress: account?.address ?? "",
-          // redirectUrl: ""
-        };
-        const searchParams = new URLSearchParams(onRampParams);
-        const onRampUrl = `https://onramp.money/app/?${searchParams}`;
 
         return (
           <>
@@ -115,14 +105,6 @@ export const RainbowKitCustomConnectButton = () => {
                       tabIndex={0}
                       className="dropdown-content menu z-[2] p-2 mt-2 shadow-center shadow-accent bg-base-200 rounded-box gap-1"
                     >
-                      <li>
-                        <button className="menu-item btn-sm !rounded-xl flex gap-3 py-3" type="button">
-                          <BanknotesIcon className="h-6 w-4 ml-2 sm:ml-0" />
-                          <a target="_blank" href={onRampUrl} rel="noopener noreferrer" className="whitespace-nowrap">
-                            Add Matic via UPI
-                          </a>
-                        </button>
-                      </li>
                       <li>
                         {addressCopied ? (
                           <div className="btn-sm !rounded-xl flex gap-3 py-3">

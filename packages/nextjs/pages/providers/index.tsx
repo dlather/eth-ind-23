@@ -3,14 +3,6 @@ import Link from "next/link";
 import { gql } from "@apollo/client";
 import dayjs from "dayjs";
 import type { NextPage } from "next";
-import ShowMoreText from "react-show-more-text";
-import {
-  BanknotesIcon,
-  ClockIcon,
-  EllipsisHorizontalCircleIcon,
-  ReceiptPercentIcon,
-  WalletIcon,
-} from "@heroicons/react/24/outline";
 import { CustomLoading } from "~~/components/CustomCommons";
 import { useScaffoldContractRead } from "~~/hooks/scaffold-eth";
 import createApolloClient from "~~/utils/appolo-client";
@@ -196,10 +188,8 @@ const LOptionsProviderTemplateWrapper = ({
 const LProviderCard = ({
   data,
   supportedCurrencies,
-  dataIdOptions,
 }: {
   data: any;
-  dataIdOptions: string;
   supportedCurrencies:
     | readonly {
         _symbol: string;
