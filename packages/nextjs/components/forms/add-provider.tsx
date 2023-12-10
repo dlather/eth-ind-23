@@ -193,7 +193,19 @@ const AddProviderForm = memo(
             endTimeStr: dayjs().add(1, "day").toISOString(),
           }}
         >
-          {({ endTimeStr, assertionLiveness, decimals, name, description, source, bond, currency, fee, ...rest }) => {
+          {({
+            endTimeStr,
+            assertionLiveness,
+            decimals,
+            name,
+            description,
+            source,
+            bond,
+            currency,
+            fee,
+            template,
+            ...rest
+          }) => {
             return (
               <>
                 {/* <CustomDateTimePicker

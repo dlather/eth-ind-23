@@ -223,69 +223,31 @@ const LProviderCard = ({
         </div>
       </div>
       <p className="flex-1 flex my-0 mt-2 pt-2 font-medium">
-        <BanknotesIcon className="w-6 h-6 mr-1 stroke-primary inline" />
         <p className="flex-1 my-0 inline font-bold">Bond Amount</p>
-        <span className="text-primary font-bold mr-2 flex-none">
+        <span className="text font-bold mr-2 flex-none">
           {data.providerDetails.bond.toString()}{" "}
           {supportedCurrencies?.find(curr => curr._address == data.providerDetails.currency)?._symbol ?? ""}
         </span>
       </p>
       <p className="flex-1 flex my-0 pt-2 font-medium">
-        <ReceiptPercentIcon className="w-6 h-6 mr-1 stroke-primary inline" />
         <p className="flex-1 my-0 inline font-bold">Provider Fee</p>
-        <span className="text-primary font-bold mr-2 flex-none">
+        <span className="text font-bold mr-2 flex-none">
           {`${
             parseInt(((data.providerDetails.fee.fee * BigInt(10000)) / data.providerDetails.fee.decimals).toString()) /
             100
           } %`}
         </span>
       </p>
-      {dataIdOptions === "" ? null : (
-        <p className="flex-1 flex my-0 pt-2 font-medium">
-          <EllipsisHorizontalCircleIcon className="w-6 h-6 mr-1 stroke-primary inline" />
-          <p className="flex-1 my-0 inline font-bold">Options</p>
-          <span className="text-primary font-bold mr-2 flex-none">{dataIdOptions}</span>
-        </p>
-      )}
       <div className="x-overflow-scroll mt-2">
-        <ShowMoreText
-          lines={2}
-          more={<p className="text-primary font-bold inline">Show more</p>}
-          less={<p className="text-secondary font-bold inline">Show less</p>}
-          className="flex-1 my-1 font-medium"
-          anchorClass="show-more-less-clickable"
-          onClick={() => console.log("onclick show more")}
-          expanded={false}
-          truncatedEndingComponent={"... "}
-        >
-          <p>
-            Description: <span className="font-normal">{data.dataDetails.description}</span>
-          </p>
-          <p className="flex-1 flex my-0 pt-2 font-medium">
-            <ClockIcon className="w-6 h-6 mr-1 stroke-primary inline" />
-            <p className="flex-1 my-0 inline font-bold">End Time</p>
-            <span className="text-primary font-bold mr-2 flex-none">
-              {`${dayjs(parseInt(data.providerDetails.endTimeStamp.toString()) * 1000).format("lll")}`}
-            </span>
-          </p>
-          <p className="flex-1 flex my-0 pt-2 font-medium">
-            <ClockIcon className="w-6 h-6 mr-1 stroke-primary inline" />
-            <p className="flex-1 my-0 inline font-bold">Assertion Liveness</p>
-            <span className="text-primary font-bold mr-2 flex-none">
-              {(data.providerDetails.assertionLiveness / BigInt(3600)).toString()} hour{" "}
-              {(data.providerDetails.assertionLiveness / BigInt(60)).toString()} mins
-            </span>
-          </p>
-          <p className="flex-1 flex my-0 pt-2 font-medium break-all">
-            <WalletIcon className="w-6 h-6 mr-1 stroke-primary inline" />
-            <p className="flex-1 my-0 inline font-bold ">
-              Provider{" "}
-              <span className="text-primary font-bold mr-2 break-all flex-none">
-                {data.providerDetails.providerAddress}
-              </span>
-            </p>
-          </p>
-        </ShowMoreText>
+        <p>
+          Description: <span className="font-normal">{data.dataDetails.description}</span>
+        </p>
+        <p className="flex-1 flex my-0 pt-2 font-medium">
+          <p className="flex-1 my-0 inline font-bold">End Time</p>
+          <span className="text font-bold mr-2 flex-none">
+            {`${dayjs(parseInt(data.providerDetails.endTimeStamp.toString()) * 1000).format("lll")}`}
+          </span>
+        </p>
       </div>
       <div className="flex flex-row justify-between pr-4 pb-2 pt-4">
         <Link href={`/contests/add-contest?dataId=${data.dataId}`} passHref className="text-secondary ml-4">
